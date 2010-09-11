@@ -2,11 +2,10 @@
 
 ofxTween::ofxTween(){
 	duration = 0;
-	completed = true;
+	completed = false;
+	started = false;
 	easingFunction = NULL;
 	running = false;
-
-
 	easing = NULL;
 	id = -1;
 
@@ -66,6 +65,7 @@ void ofxTween::addValue(float _from, float _to){
 void ofxTween::start(){
 	timestamp = Poco::Timestamp();
 	timestamp += delay;
+	started = true;
 }
 
 void ofxTween::setDuration(uint _duration) {
@@ -85,6 +85,15 @@ float ofxTween::getTarget(unsigned pos) {
 
 bool ofxTween::isRunning() {
 	return running;
+}
+
+// added died
+bool ofxTween::isStarted() {
+	return started;
+}
+//add died
+void ofxTween::reset() {
+	started = false;
 }
 
 bool ofxTween::isCompleted() {

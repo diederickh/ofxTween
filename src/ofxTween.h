@@ -36,7 +36,8 @@ class ofxTween{
 
 		bool isRunning();
 		bool isCompleted();
-
+		bool isStarted();
+		void reset();
 		int id;
 
 		ofEvent<int> end_E;
@@ -57,6 +58,7 @@ class ofxTween{
 
 		bool running;
 		bool completed;
+		bool started;
 
 
 
